@@ -1,6 +1,6 @@
 # Blog
 My first blog.
-# state
+# Start the
 npm run dev
 # update
 cnpm i
