@@ -1,0 +1,42 @@
+$header-bg: rgba(8, 43, 70, 0.9);
+$header-height: 50px;
+
+// color
+$theme: #449d44;
+$white: #fff;
+$black: #000000;
+$darkBlack: darken($black, 3%);
+$lightBlack: lighten($black, 3);
+$blue: #20A0FF;
+$green: #5ab95c;
+$gyey: #efefef;
+$black-light: #555;
+$border-color: #d1d5da;
+$form-hover: #8391a5;
+
+// radius
+$radius: 4px;
+
+// width
+$width: 20px;
+
+// padding
+$br: 4px;
+$xs-pad: 0.3rem;
+$sm-pad: 0.5rem;
+$normal-pad: 1rem;
+$md-pad: 1.2rem;
+$lg-pad: 1.5rem;
+$xlg-pad: 3rem;
+
+//text
+$text: $black;
+$secondary: rgba(0, 0, 0, 0.54);
+$disabled: rgba(0, 0, 0, 0.38);
+$dividers: rgba(0, 0, 0, 0.26);
+
+// font-sisze
+$font-size-base: 14px;
+$font-size-logo: 2rem;
+$font-size-large: 1.6rem;
+$font-size-small: 0.85rem;
