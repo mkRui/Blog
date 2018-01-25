@@ -3,9 +3,9 @@ body {
   margin: 0;
   color: $text;
   letter-spacing: 0.5px;
-  font-family: 'Futura', "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-family: 'Futura', "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑","MicrosoftJhengHei",'华文细黑',STHeiti,MingLiu, Arial, sans-serif;
   font-size: $font-size-base;
-  background: #ffffff;
+  background-color: rgb(235,235,235);
   font-weight: 400;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
