@@ -2,24 +2,11 @@
     <div class="hot">
         <h2>热门文章(<span v-html="skills"></span>)</h2>
         <ul>
-          <li class="clear">
-            <div class="banner"><img src=""></div>
+          <li class="clearfix" v-for="(item, index) in hot" :key='index'>
+            <div class="banner" v-if='item.image'><img src=""></div>
             <div class="font">
-              <h3>web前端学习之路</h3>
-              <h5>js html css </h5>
-            </div>
-          </li>
-          <li class="clear">
-            <div class="banner"><img src=""></div>
-            <div class="font">
-              <h3>web前端学习之路</h3>
-              <h5>js html css </h5>
-            </div>
-          </li>
-          <li class="clear">
-            <div class="font">
-              <h3>web前端学习之路</h3>
-              <h5>js html css </h5>
+              <h3>{{ item.title }}</h3>
+              <h5>{{ item.min }}</h5>
             </div>
           </li>
         </ul>
@@ -34,7 +21,13 @@ export default {
       index: -1,
       indas: -1,
       timer: null,
-      skills: ''
+      skills: '',
+      hot: [
+        {title: 'web前端学习之路', min: 'js html css', image: true, url: 'dasdasdasdad', id: '42345t5'},
+        {title: 'web前端学习之路', min: 'js hl css', image: false, id: '3242345'},
+        {title: 'web前端学习之路', min: 'js html css', image: true, url: 'dasdasdasdad', id: '32445t5'},
+        {title: 'web前端学习之路', min: 'js html css', image: false, id: '32425t5'}
+      ]
     }
   },
   methods: {
@@ -124,6 +117,7 @@ export default {
 </script>
 <style scoped lang='scss'>
   .hot {
+    margin-top: 40px;
     h2 {
         font-size: 18px;
         letter-spacing: 3px;
@@ -137,12 +131,12 @@ export default {
     ul {
       width: 100%;
       li {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        height: 70px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: 65px;
         border: 1px solid #cdcdcd;
         box-sizing: border-box;
-        padding: 10px;
+        padding: 7px;
 
         .banner {
           float: left;

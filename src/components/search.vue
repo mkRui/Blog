@@ -1,5 +1,5 @@
 <template>
-  <div class="retrieve">
+  <div class="retrieve" v-fixed>
       <h2>Search</h2>
       <div class="search clearfix">
         <el-input
@@ -18,6 +18,19 @@ export default {
   data () {
     return {
       search: ''
+    }
+  },
+  directives: {
+    fixed: {
+      inserted: function (el) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 840) {
+            el.classList.add('fixeds')
+          } else {
+            el.classList.remove('fixeds')
+          }
+        })
+      }
     }
   }
 }
@@ -43,5 +56,13 @@ export default {
         color: #fff;
       }
     }
+  }
+  .fixeds {
+    width: 346.55px;
+    max-width: 346.55px;
+    position: fixed;
+    top: 128px;
+    transform: translateY(10px);
+    transition: .35s;
   }
 </style>
