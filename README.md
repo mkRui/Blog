@@ -4,4 +4,4 @@
 > npm run dev
 # update
 > cnpm i
-npm run dev
+> npm run dev
