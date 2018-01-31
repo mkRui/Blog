@@ -18,37 +18,38 @@
       <transition name="list" mode="out-in">
         <router-view></router-view>
       </transition>
-      <div class="side">
-        <search></search>
-        <hot></hot>
-      </div>
+    </div>
+    <div class="scrollB el-icon-arrow-up" v-scroll @click="scroll"></div>
+    <div class="footer">
+      <div class="dearm">In the name of dreams</div>
     </div>
   </div>
 </template>
 
 <script>
-import search from '../components/search'
-import hot from '../components/hot'
 export default {
   name: 'App',
   data () {
     return {
-      nav: ['技术', '读书', '娱乐', '电子']
+      nav: ['技术', '读书', '娱乐', '电子'],
+      distance: 0
     }
   },
   methods: {
     routs (item) {
       console.log(item)
-    }
-  },
-  watch: {
+    },
     scroll () {
-      console.log(this.scroll)
+      var timer = null
+      this.distance = window.scrollY
+      timer = setInterval(() => {
+        this.distance -= 20
+        window.scrollTo(0, this.distance)
+        if (this.distance < 0) {
+          clearInterval(timer)
+        }
+      }, 20)
     }
-  },
-  components: {
-    search,
-    hot
   },
   directives: {
     fix: {
@@ -58,18 +59,26 @@ export default {
         window.addEventListener('scroll', () => {
           scroll++
           arr.push(window.scrollY)
-          console.log(window.scrollY)
           if (window.scrollY > 30) {
             var boola = window.scrollY > arr[scroll - 2] ? 1 : 0
             if (boola) {
               el.classList.add('hide')
-              // el.addClass('hide')sq
             } else {
               setTimeout(() => {
                 el.classList.remove('hide')
               }, 500)
-              // el.removeClass('hide')
             }
+          }
+        })
+      }
+    },
+    scroll: {
+      inserted: function (el, option) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            el.classList.add('show')
+          } else {
+            el.classList.remove('show')
           }
         })
       }
@@ -86,16 +95,14 @@ export default {
       position: fixed;
       top: 0;
       z-index: 99;
+      background-color: rgb(235,235,235);
     }
     .blank {
       width: 100%;
       height: 124px;
-      img {
-        width: 124px;
-        height: 100%;
-        display: block;
-        margin: 0 auto;
-      }
+      background-image: url('../assets/image/blankground.png');
+      background-position-y: -510px;
+      background-position-x: -120px;
     }
     .header {
       width: 1024px;
@@ -105,11 +112,14 @@ export default {
       text-transform: uppercase;
       box-sizing: border-box;
       padding-left: 30px;
-      background-color: rgb(235,235,235);
+      background-image: url('../assets/image/back.png');
+      background-position-y: -515px;
+      background-position-x: -170px;
       h2 {
         color: #444;
         font-size: 40px;
         font-weight: bolder;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         span {
           color: #1C6E8C;
         }
@@ -118,6 +128,7 @@ export default {
       p {
         color: #444444;
         font-size: 14px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
     }
 
@@ -149,18 +160,48 @@ export default {
       }
     }
     .main {
-      width: 1024px;
+      width: 1200px;
+      min-height: calc(100vh - 163px);
       margin: 0 auto;
-      background-color: rgb(235,235,235);
-      > .side {
-        width: 299.55px;
-        float: right;
-        margin-top: 40px;
-      }
     }
     .hide {
       transform: translateY(-124px);
       transition: .8s cubic-bezier(0.36,-0.07, 0.3, 1.13);
+    }
+    .scrollB {
+      position: fixed;
+      bottom: 70px;
+      right: 35px;
+      width: 45px;
+      height: 45px;
+      text-align: center;
+      line-height: 45px;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+      background-color: #1C6E8C;
+      transform: translateX(300px);
+    }
+    .show {
+      transform: translateX(0);
+      -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition:  all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .footer {
+      width: 100%;
+      height: 43px;
+      background-color: #274156;
+      > .dearm {
+        width: 1024px;
+        color: #fff;
+        height: 100%;
+        line-height: 43px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 20px;
+        font-weight: border;
+      }
     }
   }
 </style>
