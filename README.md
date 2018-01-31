@@ -3,5 +3,5 @@
 # Start the
 > npm run dev
 # update
-> cnpm i
+> cnpm i <br>
 > npm run dev
