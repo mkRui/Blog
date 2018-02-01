@@ -17,14 +17,15 @@ body {
   // background-size: cover;
 }
 *, *:hover {
-  @include transition(background-color .25s linear,
-                      color .10s linear,
-                      margin .25s linear,
-                      opacity .25s linear,
-                      filter .25s linear,
-                      visibility .25s linear,
-                      transform .25s linear,
-                      border-color .25s linear);
+  @include transition(
+    background-color .25s linear,
+    color .10s linear,
+    margin .25s linear,
+    opacity .25s linear,
+    filter .25s linear,
+    visibility .25s linear,
+    transform .25s linear,
+    border-color .25s linear);
 }
 
 // 内容区域
