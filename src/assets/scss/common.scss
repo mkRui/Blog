@@ -16,7 +16,6 @@ body {
   // background-image:url('./../image/ground.jpeg');
   // background-size: cover;
 }
-
 *, *:hover {
   @include transition(background-color .25s linear,
                       color .10s linear,
