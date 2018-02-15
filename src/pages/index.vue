@@ -41,9 +41,9 @@
   </div>
 </template>
 <script>
-import search from '../components/search'
-import hot from '../components/hot'
-import labels from './../components/label'
+import search from '../components/sidebar/search'
+import hot from '../components/sidebar/hot'
+import labels from './../components/sidebar/label'
 export default {
   name: 'blogs',
   data () {
@@ -111,14 +111,14 @@ export default {
             text-align: center;
             font-weight: bolder;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            background-color: #1C6E8C;
+            background-color: $border;
           }
           div:nth-child(1) {
             float: left;
             width: 0px;
             height: 0px;
             border-top: solid 10px transparent;
-            border-right: solid 10px  #1C6E8C;
+            border-right: solid 10px $border;
             color: #ffffff;
           }
         }
@@ -165,7 +165,7 @@ export default {
             text-align: center;
             line-height: 33px;
             color: #fff;
-            background-color: #1C6E8C;
+            background-color: $border;
           }
         }
         .contentText {
@@ -190,7 +190,7 @@ export default {
             text-align: center;
             line-height: 33px;
             color: #fff;
-            background-color: #1C6E8C;
+            background-color: $border;
           }
         }
       }
