@@ -5,6 +5,8 @@ import 'nprogress/nprogress.css'
 
 const index = () => import('@/pages/index')
 const details = () => import('@/pages/details')
+const aboutMe = () => import('@/pages/aboutme')
+const message = () => import('@/pages/leavmessage')
 
 Vue.use(Router)
 
@@ -20,6 +22,16 @@ const router = new Router({
       path: '/details',
       name: 'details',
       component: details
+    },
+    {
+      path: '/aboutMe',
+      name: 'aboutMe',
+      component: aboutMe
+    },
+    {
+      path: '/message',
+      name: 'message',
+      component: message
     }
   ]
 })
