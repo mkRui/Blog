@@ -13,7 +13,11 @@
          </div>
        </div>
     </div>
-    <div class="blank"></div>
+    <div class="blank">
+      <div class="surprised">
+        <img src="../assets/image/blankground.png">
+      </div>
+    </div>
     <div class="main clearfix">
       <transition name="list" mode="out-in">
         <router-view></router-view>
@@ -90,8 +94,10 @@ export default {
 <style lang='scss' scoped>
   #app {
     width: 100%;
+    min-width: 1200px;
     .head {
       width: 100%;
+      min-width: 1200px;
       position: fixed;
       top: 0;
       z-index: 99;
@@ -100,9 +106,19 @@ export default {
     .blank {
       width: 100%;
       height: 124px;
-      background-image: url('../assets/image/blankground.png');
-      background-position-y: -510px;
-      background-position-x: -120px;
+      min-width: 1200px;
+      overflow: hidden;
+      > .surprised {
+        height: 124px;
+        width: 1200px;
+        margin:0 auto;
+        position: relative;
+        img {
+          position: absolute;
+          top: -511px;
+          left: -257px;
+        }
+      }
     }
     .header {
       width: 1024px;
@@ -121,7 +137,7 @@ export default {
         font-weight: bolder;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         span {
-          color: #1C6E8C;
+          color: $border;
         }
       }
 
@@ -135,7 +151,7 @@ export default {
     .nav {
       width: 100%;
       height: 40px;
-      background-color: #274156;
+      background-color: $head;
 
       div {
         width: 1024px;
@@ -154,14 +170,14 @@ export default {
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
           }
           li:hover {
-            background-color: #1C6E8C;
+            background-color: $border;
           }
         }
       }
     }
     .main {
       width: 1200px;
-      min-height: calc(100vh - 163px);
+      min-height: calc(100vh - 50px);
       margin: 0 auto;
     }
     .hide {
@@ -190,8 +206,9 @@ export default {
     }
     .footer {
       width: 100%;
+      min-width: 1200px;
       height: 43px;
-      background-color: #274156;
+      background-color: $head;
       > .dearm {
         width: 1024px;
         color: #fff;
