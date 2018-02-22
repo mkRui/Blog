@@ -40,7 +40,7 @@ export default {
 .tanks {
   float: right;
   width: 345px;
-  height: 345px;
+  height: 432px;
   border-left: 1px solid $border;
   margin-top: 10px;
   box-sizing: border-box;
@@ -54,13 +54,15 @@ export default {
     li {
       box-sizing: border-box;
       padding: 7px;
+      padding-left: 28px;
       .font {
         float: left;
-        line-height:2;
+        line-height:2.5;
       }
     }
   }
   .address {
+    margin-top: 20px;
     margin-left: 5px;
     a {
       font-size: 13px;

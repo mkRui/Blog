@@ -44,7 +44,9 @@ export default {
       width: 578px;
       float: left;
     > .theOne {
-      padding-bottom: 20px;
+      margin-bottom: 64px;
+      padding-top: 12px;
+      padding-bottom: 68px;
       border-bottom: 1px solid $border;
       ul {
         float: left;
