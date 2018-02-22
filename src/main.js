@@ -7,7 +7,13 @@ import store from './store/index'
 import './assets/scss/index.scss'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import VueSimplemde from 'vue-simplemde'
+import 'simplemde/dist/simplemde.min.css'
+import 'highlight.js/styles/github.css'
+
 Vue.config.productionTip = false
+
+Vue.use(VueSimplemde)
 
 Vue.use(ElementUI)
 
