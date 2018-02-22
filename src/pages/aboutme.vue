@@ -41,10 +41,11 @@ export default {
     .aboutme {
       position: relative;
       width: 1000px;
+      height: 1072px;
       min-height: 800px;
       background:#fff;
       margin: 0 auto;
-      margin-top: 50px;
+      margin-top: 70px;
       border-radius: 5px;
       box-sizing: border-box;
       padding: 30px;
