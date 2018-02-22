@@ -35,6 +35,7 @@ import comment from '../components/article/comments'
 import search from '../components/sidebar/search'
 import hot from '../components/sidebar/hot'
 import labels from './../components/sidebar/label'
+import mainContent from './../components/article/content'
 export default {
   name: 'detail',
   data () {
@@ -50,7 +51,8 @@ export default {
     search,
     hot,
     labels,
-    comment
+    comment,
+    mainContent
   }
 }
 </script>
