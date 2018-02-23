@@ -1,17 +1,28 @@
 <template>
-  <div class="scr-content" v-html="contents">
-    {{ contents }}
-  </div>
+  <div class="scr-content" v-html="contents"></div>
 </template>
 <script>
+import emoji from '@/plugins/emoji-data'
 export default {
   name: 'mainContent',
-  props: ['contents']
+  props: ['contents'],
+  data () {
+    return {
+      mainContens: ''
+    }
+  },
+  mounted () {
+    console.log(emoji)
+  }
 }
 </script>
 <style lang='scss' scope>
   .scr-content {
     margin-bottom: 10px;
+    p {
+      width: 100%;
+      word-wrap:break-word;
+    }
     pre {
       display: block;
       overflow-x: auto;
