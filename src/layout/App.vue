@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import service from './../api/index'
 export default {
   name: 'App',
   data () {
@@ -87,6 +88,10 @@ export default {
         })
       }
     }
+  },
+  async mounted () {
+    const data = await service.listArticle()
+    console.log(data)
   }
 }
 </script>
