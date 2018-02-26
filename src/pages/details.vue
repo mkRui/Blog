@@ -27,6 +27,10 @@
           <labels v-show="all"></labels>
         </transition>
 
+        <transition name="slide-up" mode="out-in">
+          <link-list v-show="all"></link-list>
+        </transition>
+
       </div>
     </div>
 </template>
@@ -36,6 +40,7 @@ import search from '../components/sidebar/search'
 import hot from '../components/sidebar/hot'
 import labels from './../components/sidebar/label'
 import mainContent from './../components/article/content'
+import linkList from './../components/sidebar/linkList'
 export default {
   name: 'detail',
   data () {
@@ -52,7 +57,8 @@ export default {
     hot,
     labels,
     comment,
-    mainContent
+    mainContent,
+    linkList
   }
 }
 </script>

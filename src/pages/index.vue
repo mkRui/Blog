@@ -37,6 +37,10 @@
           <labels v-show="all"></labels>
         </transition>
 
+        <transition name="slide-up" mode="out-in">
+          <link-list v-show="all"></link-list>
+        </transition>
+
     </div>
   </div>
 </template>
@@ -44,6 +48,7 @@
 import search from '../components/sidebar/search'
 import hot from '../components/sidebar/hot'
 import labels from './../components/sidebar/label'
+import linkList from './../components/sidebar/linkList'
 export default {
   name: 'blogs',
   data () {
@@ -62,7 +67,8 @@ export default {
   components: {
     search,
     hot,
-    labels
+    labels,
+    linkList
   },
   mounted () {
     this.all = true
