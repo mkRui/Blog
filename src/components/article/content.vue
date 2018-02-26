@@ -1,8 +1,9 @@
 <template>
-  <div class="scr-content" v-html="contents"></div>
+  <div>
+    <div class="scr-content" v-html="contents"></div>
+  </div>
 </template>
 <script>
-import emoji from '@/plugins/emoji-data'
 export default {
   name: 'mainContent',
   props: ['contents'],
@@ -12,18 +13,21 @@ export default {
     }
   },
   mounted () {
-    console.log(emoji)
   }
 }
 </script>
 <style lang='scss' scope>
   .scr-content {
     margin-bottom: 10px;
+    font-size: 16px;
     p {
+      font-size: 17px;
       width: 100%;
       word-wrap:break-word;
     }
     pre {
+      margin-top: 10px;
+      margin-bottom: 10px;
       display: block;
       overflow-x: auto;
       padding: 0.5em;

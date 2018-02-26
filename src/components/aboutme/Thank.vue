@@ -54,7 +54,7 @@ export default {
     li {
       box-sizing: border-box;
       padding: 7px;
-      padding-left: 28px;
+      padding-left: 16px;
       .font {
         float: left;
         line-height:2.5;

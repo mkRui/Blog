@@ -43,7 +43,7 @@ export default {
     .labels {
       transform: .35s;
       margin-top: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 10px;
       h2 {
       font-size: 18px;
       letter-spacing: 3px;
@@ -60,6 +60,7 @@ export default {
           float: left;
           background: #fff;
           border: 1px solid #cdcdcd;
+          border-radius: 3px;
           margin-right: 13px;
           margin-bottom: 10px;
           text-align: center;
