@@ -17,22 +17,22 @@
       <div class="reply">
         <p class="clearfix"><span>{{ item.name }}</span><span>{{ item.date }}</span></p>
 
-        <mainContent :contents="item.content"></mainContent>
+        <mainContent :contents="item.content | emojiContent"></mainContent>
 
         <div v-if="item.children">
           <div class="commentreply clearfix" v-for="(items, element) in item.children" :key="element">
             <h4><span>{{ items.maxName }}</span><span v-if="items.minName">@{{ items.minName }}:</span><span v-else>:</span></h4>
 
-            <mainContent :contents="items.content"></mainContent>
+            <mainContent :contents="items.content | emojiContent"></mainContent>
 
           </div>
         </div>
         <div class="iconfonts clearfix">
-          <div>
+          <div class="clearfix">
             <span class="iconfont icon-huifu"></span>
             <span>回复</span>
           </div>
-          <div>
+          <div class="clearfix">
             <span class="iconfont icon-shoucang"></span>
             <span>赞</span>
           </div>
@@ -151,23 +151,17 @@ export default {
       margin-top: 10px;
       div {
         span {
-          vertical-align: middle;
-          line-height: 20px;
+          float: left;
+          display: block;
+          margin-left: 5px;
+        }
+        .icon-huifu {
+          margin-top: -3px;
+          font-size: 22px;
         }
         height: 20px;
         float: left;
         margin-right: 10px;
-      }
-      div:nth-child(1) {
-        span:nth-child(1) {
-          margin-top: 20px;
-          font-size: 19px;
-        }
-      }
-      div:nth-child(2) {
-        span:nth-child(1) {
-          font-size:14px;
-        }
       }
     }
     .commentreply {
