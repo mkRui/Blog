@@ -90,8 +90,12 @@ export default {
     }
   },
   async mounted () {
-    const data = await service.listArticle()
-    console.log(data)
+    // const data = await service.listArticle()
+    const register = await service.register()
+    console.log(register)
+    const login = await service.login()
+    console.log(login)
+    // console.log(data)
   }
 }
 </script>
