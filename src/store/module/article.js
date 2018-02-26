@@ -1,7 +1,7 @@
 const state = {
   html: '',
   words: [
-    {imgUrl: 'https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D450%2C600/sign=9d6eeb457f310a55c471d6f082756f9f/a71ea8d3fd1f4134fd5274c8231f95cad1c85e1a.jpg', name: '师聪瑞', date: '2017年12月13日', content: '<h1 class="scr-h1">hello!这篇文章还行😬 我还是挺喜欢的</h1>'},
+    {imgUrl: 'https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D450%2C600/sign=9d6eeb457f310a55c471d6f082756f9f/a71ea8d3fd1f4134fd5274c8231f95cad1c85e1a.jpg', name: '师聪瑞', date: '2017年12月13日', content: '<h1 class="scr-h1">hello!这篇文章还行[酷]我还是挺喜欢的</h1>'},
     {imgUrl: 'https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D450%2C600/sign=9d6eeb457f310a55c471d6f082756f9f/a71ea8d3fd1f4134fd5274c8231f95cad1c85e1a.jpg',
       name: '曹帅',
       date: '2017年12月12日',
