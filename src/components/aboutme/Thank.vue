@@ -13,7 +13,7 @@
     <div class="address">
       <router-link to="/index">回到主页</router-link>
       <span>···</span>
-      <router-link to="/index">留言墙</router-link>
+      <router-link to="/message">留言墙</router-link>
     </div>
   </div>
 </template>
