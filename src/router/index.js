@@ -15,22 +15,22 @@ const router = new Router({
     { path: '/', redirect: '/index' },
     {
       path: '/index',
-      name: '首页',
+      name: 'index',
       component: index
     },
     {
       path: '/details',
-      name: '文章详情',
+      name: 'details',
       component: details
     },
     {
       path: '/aboutMe',
-      name: '关于作者',
+      name: 'aboutMe',
       component: aboutMe
     },
     {
       path: '/message',
-      name: '留言墙',
+      name: 'message',
       component: message
     }
   ]
