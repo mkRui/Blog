@@ -34,7 +34,7 @@ export function checkList (data) {
     title: '1234', // 标题
     shortcut: '23456', // 内容缩略
     content: 'dsadasmfdbkjasbfjkbasfj', // 内容
-    tags: '标签1'
+    tags: '标签1,标签2,标签3'
   })).then(res => res.data)
 }
 
@@ -46,4 +46,9 @@ export function listArticle (data) {
 // 获取分类列表
 export function CatagoryList (data) {
   return axios.get('/article/getCatagoryList').then(res => res.data)
+}
+
+// 标签获取 根据文章数量排序
+export function TagList (data) {
+  return axios.get('/article/getTagList').then(res => res.data)
 }
