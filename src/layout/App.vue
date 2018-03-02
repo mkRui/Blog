@@ -1,33 +1,62 @@
 <template>
-  <div id="app">
-    <div class="head" v-fix>
-      <div class="header">
-         <h2>he<span>llo</span>  world </h2>
-         <p>hi Welcome to the blog</p>
-       </div>
-       <div class="nav">
-         <div>
-            <ul class="clearfix">
-              <li v-for="i in nav" :key="i" @click="routs(i)"> {{ i }} </li>
-            </ul>
-         </div>
-       </div>
-    </div>
-    <div class="blank">
-      <div class="surprised">
-        <img src="../assets/image/blankground.png">
+<div>
+  <transition name="list" mode="out-in">
+    <div id="app" v-show="curtain">
+      <div class="head" v-fix>
+        <div class="header">
+          <h2>he<span>llo</span>  world </h2>
+          <p>hi Welcome to the blog</p>
+        </div>
+        <div class="nav">
+          <div>
+              <ul class="clearfix">
+                <li v-for="i in nav" :key="i" @click="routs(i)"> {{ i }} </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="blank">
+        <div class="surprised">
+          <img src="../assets/image/blankground.png">
+        </div>
+      </div>
+      <div class="main clearfix">
+        <transition name="list" mode="out-in">
+          <router-view></router-view>
+        </transition>
+      </div>
+      <div class="scrollB el-icon-arrow-up" v-scroll @click="scroll"></div>
+      <div class="footer">
+        <div class="dearm">In the name of dreams</div>
       </div>
     </div>
-    <div class="main clearfix">
-      <transition name="list" mode="out-in">
-        <router-view></router-view>
-      </transition>
+  </transition>
+  <transition name="list" mode="out-in">
+    <div class="curtain" v-show="!curtain">
+      <h2>Welcome to come in</h2>
+      <p>我们可以为您筛选一些内容，不过这其中少不了需要您的帮助</p>
+      <p class="overall" @click="overall">当然如果您想大致的浏览我们 那么请点击这里</p>
+      <p>以下的选项可以帮助您进行筛选</p>
+      <p>祝您可以在这里找到自己想要的东西</p>
+      <div class="clearfix">
+          <el-select
+          v-model="choose"
+          multiple
+          style="margin-top: 20px; float: left;"
+          collapse-tags
+          placeholder="请选择">
+            <el-option
+              v-for="(item, index) in options"
+              :key="index"
+              :label="item.label"
+              :value="item.label">
+            </el-option>
+        </el-select>
+        <button style="margin-top: 20px; margin-left:10px; height: 40px; float: left;" @click="submit">完成</button>
+      </div>
     </div>
-    <div class="scrollB el-icon-arrow-up" v-scroll @click="scroll"></div>
-    <div class="footer">
-      <div class="dearm">In the name of dreams</div>
-    </div>
-  </div>
+  </transition>
+</div>
 </template>
 
 <script>
@@ -37,7 +66,25 @@ export default {
   data () {
     return {
       nav: ['技术', '读书', '娱乐', '电子'],
-      distance: 0
+      distance: 0,
+      curtain: true,
+      options: [{
+        label: '编程'
+      }, {
+        label: '技术'
+      }, {
+        label: '读书'
+      }, {
+        label: '娱乐'
+      }, {
+        label: '电子'
+      }],
+      choose: []
+    }
+  },
+  watch: {
+    choose (item) {
+      console.log(item)
     }
   },
   methods: {
@@ -54,6 +101,13 @@ export default {
           clearInterval(timer)
         }
       }, 20)
+    },
+    overall () {
+      this.curtain = true
+    },
+    submit () {
+      console.log(this.choose)
+      this.curtain = true
     }
   },
   directives: {
@@ -90,12 +144,17 @@ export default {
     }
   },
   async mounted () {
-    // const data = await service.listArticle()
-    const register = await service.register()
-    console.log(register)
+    if (!this.curtain) {
+      this.$route.push()
+    }
     const login = await service.login()
     console.log(login)
-    // console.log(data)
+    // const Cat = await service.CatagoryList()
+    // console.log(Cat)
+    // const checkList = await service.checkList()
+    // console.log(checkList)
+    // const tagList = await service.TagList()
+    // console.log(tagList)
   }
 }
 </script>
@@ -228,6 +287,30 @@ export default {
         font-size: 20px;
         font-weight: border;
       }
+    }
+  }
+  .curtain {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 100px;
+    color: #d3d1d1;
+    background: url('./../assets/image/initial.jpg') no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    text-align: left;
+    p {
+      margin-top: 10px;
+      padding-left:5px;
+    }
+    h2 {
+      font-size: 25px;
+    }
+    .overall {
+      cursor:pointer;
     }
   }
 </style>
