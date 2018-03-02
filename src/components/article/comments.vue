@@ -8,8 +8,8 @@
     </div>
     <div class="commentbox">
         <div class="commentpeople clearfix">
-        <div><img src="../../assets/image/people.jpeg"></div>
-          <CommentBox></CommentBox>
+          <div><img src="../../assets/image/people.jpeg"></div>
+          <div><CommentBox v-on:marked="commentMarked"></CommentBox></div>
         </div>
     </div>
     <div class="commenand clearfix" v-for="(item, index) in words" :key="index">
@@ -54,6 +54,9 @@ export default {
     target (event) {
       console.log(1)
       console.log(event)
+    },
+    commentMarked (data) {
+      this.$store.dispatch('marked', data)
     }
   },
   components: {
@@ -99,7 +102,7 @@ export default {
       .commentpeople {
         width: 100%;
 
-        >div:nth-child(1) {
+        > div:nth-child(1) {
           float: left;
           width: 50px;
           height: 50px;
@@ -110,6 +113,10 @@ export default {
             width: 100%;
             height: 100%;
           }
+        }
+        > div:nth-child(2) {
+          width: calc(100% - 90px) ;
+          float: right;
         }
       }
     }
@@ -150,6 +157,7 @@ export default {
       width: 100%;
       margin-top: 10px;
       div {
+        cursor: pointer;
         span {
           float: left;
           display: block;
