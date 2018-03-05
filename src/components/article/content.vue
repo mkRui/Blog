@@ -18,7 +18,6 @@ export default {
 </script>
 <style lang='scss' scope>
   .scr-content {
-    margin-bottom: 10px;
     font-size: 16px;
     p {
       font-size: 17px;
@@ -26,6 +25,7 @@ export default {
       word-wrap:break-word;
     }
     pre {
+      width: 100%;
       margin-top: 10px;
       margin-bottom: 10px;
       display: block;
@@ -43,6 +43,7 @@ export default {
     }
     img {
       width: 100%;
+      margin: 10px 0px;
     }
   }
 </style>
