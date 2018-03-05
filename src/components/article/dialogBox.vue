@@ -4,7 +4,7 @@
       <div class="dialog" v-show="dialog">
         <div class="dialogBox">
           <i class="el-icon-close close" @click="masBox"></i>
-          <solt></solt>
+          <slot name="fragment"></slot>
         </div>
       </div>
     </transition>
@@ -13,14 +13,22 @@
 <script>
 export default {
   name: 'dialogs',
+  props: ['dialogControl'],
   data () {
     return {
-
+      dialog: false
+    }
+  },
+  watch: {
+    dialogControl (item) {
+      console.log(item)
+      this.dialog = item
     }
   },
   methods: {
     masBox () {
       this.dialog = false
+      this.$emit('controlClosed')
     }
   }
 }
