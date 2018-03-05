@@ -27,7 +27,7 @@ import emoji from './../../plugins/emoji-data'
 import marked from './../../plugins/marked'
 export default {
   name: 'CommentBox',
-  props: ['borderColor'],
+  props: ['borderColor', 'info', 'people'],
   data () {
     return {
       emoji: [],
@@ -100,7 +100,15 @@ export default {
       if (this.$refs.markEditor.innerText !== '这一刻,请写下你的想法.....') {
         let text = this.$refs.markEditor.innerText
         let html = marked(text)
-        this.$emit('marked', html)
+        if (this.info) {
+          if (this.people) {
+            this.$emit('marked', html, this.info, this.people)
+          } else {
+            this.$emit('marked', html, this.info)
+          }
+        } else {
+          this.$emit('marked', html)
+        }
         this.$refs.markEditor.innerText = '这一刻,请写下你的想法.....'
       }
     }
