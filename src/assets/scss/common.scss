@@ -106,8 +106,8 @@ body {
 }
 
 // dialog
-
 .el-dialog {
+  border-radius: 5px !important;
   .el-dialog__title {
     font-weight: bold;
     font-size: 16px;
@@ -116,16 +116,6 @@ body {
 
   .el-dialog__body {
     padding: 20px;
-  }
-
-  .select-time {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-
-    .el-date-editor.el-input {
-      width: 170px;
-    }
   }
 }
 
