@@ -14,6 +14,8 @@
       <router-link to="/index">回到主页</router-link>
       <span>···</span>
       <router-link to="/message">留言墙</router-link>
+      <div>···</div>
+      <div class='thislink'><router-link to="/archive">归档</router-link></div>
     </div>
   </div>
 </template>

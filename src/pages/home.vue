@@ -19,8 +19,8 @@
         <img src="../assets/image/blankground.png">
       </div>
     </div>
-    <div class="main clearfix">
-      <div class="login">
+    <div class="main clearfix" >
+      <div class="login" v-if="!ifDetail">
         <div class="userLogin" @click="dialogVisible = true">
           <i class="iconfont icon-character"></i>
         </div>
@@ -45,20 +45,20 @@
         </div>
     </div>
     <div class="mainBody">
-      <el-input v-model="userNmae" placeholder="请输入用户名"></el-input>
-      <el-input v-model="password" @focus="focusPass = true" @blur="focusPass = false" placeholder="请输入密码"></el-input>
       <transition name="list" mode="out-in">
-        <el-input v-model="email" placeholder="请输入邮箱" v-if="registered"></el-input>
+        <el-input v-model="account" placeholder="请输入用户名" v-if="registered"></el-input>
       </transition>
+      <el-input v-model="userNmae" type="number" placeholder="请输入账号"></el-input>
+      <el-input v-model="password" @focus="focusPass = true" @blur="focusPass = false" placeholder="请输入密码"></el-input>
     </div>
     <div slot="footer" class="footBtn">
       <div v-if="!registered">
-        <el-button  type="primary" >登录</el-button>
+        <el-button  type="primary" @click="login" >登录</el-button>
         <el-button @click="registered = true; userNmae = ''; password = ''; email = ''">注册</el-button>
       </div>
       <div v-else>
         <el-button  type="primary" @click="registered = false; userNmae = ''; password = ''; email = ''" >返回</el-button>
-        <el-button >确认</el-button>
+        <el-button @click="registereds">确认</el-button>
       </div>
     </div>
   </el-dialog>
@@ -66,7 +66,8 @@
 </template>
 
 <script>
-// import service from './../api/index'
+import service from './../api/index'
+import { mapGetters } from 'vuex'
 export default {
   name: 'App',
   data () {
@@ -78,8 +79,12 @@ export default {
       userNmae: '',
       password: '',
       email: '',
+      account: '',
       focusPass: false
     }
+  },
+  computed: {
+    ...mapGetters(['ifDetail'])
   },
   methods: {
     routs (item) {
@@ -95,6 +100,20 @@ export default {
           clearInterval(timer)
         }
       }, 20)
+    },
+    login () {
+      service.login({
+        account: '1102163949',
+        password: '123456'
+      })
+    },
+    registereds () {
+      service.register({
+        activationCode: '591VD6PX',
+        account: '1102163949',
+        password: '123456',
+        name: '师聪瑞'
+      })
     }
   },
   directives: {
@@ -131,13 +150,7 @@ export default {
     }
   },
   async mounted () {
-    // const login = await service.login()
-    // const Cat = await service.CatagoryList()
-    // console.log(Cat)
-    // const checkList = await service.checkList()
-    // console.log(checkList)
-    // const tagList = await service.TagList()
-    // console.log(tagList)
+    console.log(this.$route)
   }
 }
 </script>
