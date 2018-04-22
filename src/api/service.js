@@ -3,20 +3,12 @@ import querystring from 'querystring'
 
 // 注册
 export function register (data) {
-  return axios.post('/usher/register', querystring.stringify({
-    activationCode: '0WSGYRRF',
-    account: '1102163949',
-    password: '123456',
-    name: '师聪瑞'
-  })).then(res => res.data)
+  return axios.post('/usher/register', data).then(res => res.data)
 }
 
 // 登陆
 export function login (data) {
-  return axios.post('/usher/login', querystring.stringify({
-    account: '1102163949',
-    password: '123456'
-  })).then(res => res.data)
+  return axios.post('/usher/login', data).then(res => res.data)
 }
 
 // 推出登陆

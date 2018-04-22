@@ -7,7 +7,7 @@ const ax = axios.create({
   timeout: 5000
 })
 
-axios.interceptors.request.use(config => {
+ax.interceptors.request.use(config => {
   if (config.method === 'post' ||
       config.method === 'put' ||
       config.method === 'delete' ||
