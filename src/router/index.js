@@ -21,6 +21,9 @@ const message = r => require.ensure([], () => r(require('./../pages/message/inde
 // 自定义定制
 const custom = r => require.ensure([], () => r(require('./../pages/custom.vue')), 'group6')
 
+// 归档
+const archive = r => require.ensure([], () => r(require('./../pages/archive/index.vue')), 'group7')
+
 Vue.use(Router)
 
 const router = new Router({
@@ -64,6 +67,14 @@ const router = new Router({
       component: home,
       children: [
         {path: '/custom', component: custom, name: '定制', meta: {page: 'custom'}}
+      ]
+    },
+    {
+      path: '/',
+      name: 'archive',
+      component: home,
+      children: [
+        {path: '/archive', component: archive, name: '归档', meta: {page: 'archive'}}
       ]
     }
   ]
