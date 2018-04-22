@@ -1,5 +1,10 @@
 <template>
-    <div class="clearfix">
+    <div class="clearfix detailContent">
+      <div class="login" v-if="!ifDetail">
+        <div class="userLogin" @click="like = !like">
+          <i class="iconfont icon-shoucang" :style="{color: like ? 'red' : '' }"></i>
+        </div>
+      </div>
       <div class="detail">
         <div class="triangle">
           <div></div>
@@ -45,7 +50,8 @@ export default {
   name: 'detail',
   data () {
     return {
-      all: false
+      all: false,
+      like: false
     }
   },
   mounted () {
@@ -63,6 +69,32 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+@import url('./../../iconfont/iconfont.css');
+.detailContent {
+  .login {
+    width: 100px;
+    position: fixed;
+    top: 180px;
+    .userLogin {
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bolder;
+      i {
+        font-size: 20px;
+      }
+      transition: .35s;
+      &:hover {
+        box-shadow: 0 0 10px 3px rgba(0,0,0,0.1);
+      }
+    }
+  }
   .detail {
     float: left;
     max-width: 650px;
@@ -130,4 +162,5 @@ export default {
     margin-top: 40px;
     margin-left: 93px;
   }
+}
 </style>

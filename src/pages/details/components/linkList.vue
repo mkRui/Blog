@@ -3,6 +3,8 @@
       <div class='thislink'><router-link to="/aboutme">关于作者</router-link></div>
       <div>···</div>
       <div class='thislink'><router-link to="/message">留言墙</router-link></div>
+      <div>···</div>
+      <div class='thislink'><router-link to="/archive">归档</router-link></div>
   </div>
 </template>
 <script>

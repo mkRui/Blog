@@ -9,9 +9,15 @@
 export default {
   name: 'App',
   watch: {
-    '$route': (to, form) => {
-      console.log(to)
+    '$route' (to, form) {
+      if (to.path === '/details') {
+        this.$store.dispatch('detailLike', true)
+      } else {
+        this.$store.dispatch('detailLike', false)
+      }
     }
+  },
+  mounted () {
   }
 }
 </script>
