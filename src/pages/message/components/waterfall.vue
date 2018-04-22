@@ -81,22 +81,22 @@ export default {
 <style lang='scss' scoped>
   .leave {
     > .leaveMain {
+      display: flex;
+      justify-content: space-around;
       ul {
-        width: 250px;
-        float: left;
-        margin-left: 25px;
-        margin-right: 25px;
+        width: 230px;
         li {
           position: relative;
-          background: #ccc;
+          background: #E3E3E3;
           width: 100%;
           min-height: 100px;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
           box-sizing: border-box;
           padding: 10px;
-          padding-bottom: 20px;
+          padding-bottom: 30px;
           word-wrap:break-word;
           border-radius: 4px;
+          border: 1px solid $border;
           h5 {
             font-size: 15px;
             font-weight: normal;
