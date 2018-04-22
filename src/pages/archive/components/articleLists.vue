@@ -102,7 +102,6 @@ export default {
     justify-content: flex-start;
     align-items: center;
     > span {
-      
       &:nth-child(1) {
         display: block;
         width: 10px;
