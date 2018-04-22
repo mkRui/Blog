@@ -2,7 +2,7 @@
   <div class="leaveMessage">
     <transition name="slide-up" mode="out-in">
       <div class="dialog" v-show="dialog">
-        <div class="dialogBox">
+        <div class="dialogBox" @click.stop="console.log('想要成为管理员吗？')">
           <h2>无拘无束的留言墙，大家发泄吧！</h2>
             <i class="el-icon-close close" @click="masBox"></i>
           <el-row class="name">
@@ -25,7 +25,7 @@
       </div>
     </transition>
     <div class="title">
-      <el-button @click="messageBox" type="info" plain>我要留言</el-button>
+      <el-button @click.stop="messageBox" type="info" plain>我要留言</el-button>
     </div>
     <waterfall :msgConten="content"></waterfall>
   </div>
@@ -65,14 +65,20 @@ export default {
       json.date = new Date().toLocaleString()
       this.call = ''
       this.content = json
+      this.dialog = false
     }
   },
   mounted () {
+    document.onclick = () => {
+      this.dialog = false
+    }
   }
 }
 </script>
 <style lang='scss' scoped>
   .leaveMessage {
+    width: 1000px;
+    margin: 0 auto;
     .title {
       text-align: center;
       width: 100%;

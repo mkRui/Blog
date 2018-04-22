@@ -136,8 +136,12 @@ export default {
           padding-top: 13px;
           padding-bottom:10px;
         }
-         h4 {
+        h4 {
           padding-bottom:10px;
+          font-weight: normal;
+          span {
+            font-weight: bolder;
+          }
         }
         .image {
           float: left;
