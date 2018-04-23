@@ -26,7 +26,7 @@ export function checkList (data) {
     title: '1234', // 标题
     shortcut: '23456', // 内容缩略
     content: 'dsadasmfdbkjasbfjkbasfj', // 内容
-    tags: '标签1,标签2,标签3'
+    tags: '标签1,标签2,标签3' // 标签
   })).then(res => res.data)
 }
 
