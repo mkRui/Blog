@@ -48,7 +48,10 @@ export default {
       this.$refs.ul.forEach((item, elem) => {
         this.compare.push(item.offsetHeight)
       })
+      console.log(this.compare)
       this.num = Math.min.apply(Math, this.compare)
+      console.log(this.num)
+      console.log('_________')
       for (var i = 0; i < this.$refs.ul.length; i++) {
         if (this.$refs.ul[i].offsetHeight === this.num) {
           this.index = i
@@ -59,7 +62,6 @@ export default {
     }
   },
   async mounted () {
-    console.log(this.msgConten)
     // 定时器的写法
     // var index = 0
     // var timer = null
@@ -81,10 +83,10 @@ export default {
 <style lang='scss' scoped>
   .leave {
     > .leaveMain {
-      display: flex;
-      justify-content: space-around;
       ul {
         width: 230px;
+        float: left;
+        margin-right: 26px;
         li {
           position: relative;
           background: #E3E3E3;
@@ -109,6 +111,9 @@ export default {
             right: 5px;
             bottom: 5px;
           }
+        }
+        &:last-child {
+          margin-right: 0px;
         }
       }
     }

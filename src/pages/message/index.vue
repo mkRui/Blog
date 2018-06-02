@@ -2,7 +2,7 @@
   <div class="leaveMessage">
     <transition name="slide-up" mode="out-in">
       <div class="dialog" v-show="dialog">
-        <div class="dialogBox" @click.stop="console.log('想要成为管理员吗？')">
+        <div class="dialogBox" @click.stop="cc">
           <h2>无拘无束的留言墙，大家发泄吧！</h2>
             <i class="el-icon-close close" @click="masBox"></i>
           <el-row class="name">
@@ -52,6 +52,9 @@ export default {
     }
   },
   methods: {
+    cc () {
+      console.log(1)
+    },
     messageBox () {
       this.dialog = true
     },
