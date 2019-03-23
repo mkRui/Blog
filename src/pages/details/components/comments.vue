@@ -16,7 +16,7 @@
       <div><img :src="item.imgUrl"></div>
       <div class="reply">
         <p class="clearfix"><span>{{ item.name }}</span><span>{{ item.date }}</span></p>
-
+        {{ item.content }}
         <div class='mainBody'>
           <mainContent :contents="item.content | emojiContent"></mainContent>
         </div>
@@ -24,7 +24,7 @@
         <div v-if="item.children">
           <div class="commentreply clearfix" v-for="(items, element) in item.children" :key="element">
             <h4><span>{{ items.maxName }}</span><span v-if="items.minName">@{{ items.minName }}:</span><span v-else>:</span></h4>
-
+            {{ items.content }}
             <mainContent :contents="items.content | emojiContent"></mainContent>
 
             <el-row class="infoBottom">
